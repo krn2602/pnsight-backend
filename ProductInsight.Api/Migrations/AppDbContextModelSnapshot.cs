@@ -38,6 +38,22 @@ namespace ProductInsight.Api.Migrations
                     b.HasKey("Ean");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Ean = "5901234123457",
+                            Category = "electrocasnice",
+                            LastLookupDate = new DateTime(2026, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Cafetiera "
+                        },
+                        new
+                        {
+                            Ean = "4006381333931",
+                            Category = "Papetarie",
+                            LastLookupDate = new DateTime(2026, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Set markere Faber"
+                        });
                 });
 
             modelBuilder.Entity("ProductInsight.Api.Models.Review", b =>
@@ -72,6 +88,58 @@ namespace ProductInsight.Api.Migrations
                     b.HasIndex("ProductEan");
 
                     b.ToTable("Reviews");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AuthorName = "Ana",
+                            Date = new DateTime(2026, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "5901234123457",
+                            Rating = 4,
+                            Source = "Seed",
+                            Text = "Face o cafea bună, dar e zgomotoasă."
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AuthorName = "Mihai",
+                            Date = new DateTime(2026, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "5901234123457",
+                            Rating = 2,
+                            Source = "Seed",
+                            Text = "După 3 luni s-a stricat pompa."
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AuthorName = "Elena",
+                            Date = new DateTime(2026, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "5901234123457",
+                            Rating = 5,
+                            Source = "Seed",
+                            Text = "Raport calitate/preț excelent."
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AuthorName = "Radu",
+                            Date = new DateTime(2026, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "4006381333931",
+                            Rating = 5,
+                            Source = "Seed",
+                            Text = "Culori vii, nu se usucă repede."
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AuthorName = "Ioana",
+                            Date = new DateTime(2026, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "4006381333931",
+                            Rating = 3,
+                            Source = "Seed",
+                            Text = "Mi se pare cam scump pentru ce oferă."
+                        });
                 });
 
             modelBuilder.Entity("ProductInsight.Api.Models.Review", b =>
