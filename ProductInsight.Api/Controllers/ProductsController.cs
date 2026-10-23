@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductInsight.Api.Data;
+using ProductInsight.Api.Services;
 
 namespace ProductInsight.Api.Controller;
 
@@ -16,6 +17,9 @@ public class ProductsController : ControllerBase
 
     [HttpGet("{ean}")]
     public async Task<IActionResult> GetProduct(string ean) {
+        
+        if (!EanValidator.IsValid(ean))
+        return BadRequest (new { message = "Cod EAN invalid"});
         var product = await _db.Products
         .Where(p => p.Ean == ean)
         .Select(p => new { p.Ean, p.Name, p.Category, p.ImageUrl})
@@ -27,6 +31,9 @@ public class ProductsController : ControllerBase
     }
     [HttpGet("{ean}/reviews")]
     public async Task<IActionResult> GetReviews(string ean) {
+       
+        if (!EanValidator.IsValid(ean))
+            return BadRequest (new { message = "Cod EAN invalid"});
         var exists = await _db.Products.AnyAsync(p => p.Ean == ean);
         if(!exists)
             return NotFound(new { message = "Produsul nu a fost gasit"});
@@ -41,6 +48,9 @@ public class ProductsController : ControllerBase
 
     [HttpGet("{ean}/score")]
     public async Task<IActionResult> GetScore(string ean) {
+       
+        if (!EanValidator.IsValid(ean))
+            return BadRequest (new { message = "Cod EAN invalid"});
         var ratings = await _db.Reviews
         .Where(r => r.ProductEan == ean)
         .Select(r => r.Rating)
