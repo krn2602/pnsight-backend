@@ -53,6 +53,27 @@ namespace ProductInsight.Api.Migrations
                             Category = "Papetarie",
                             LastLookupDate = new DateTime(2026, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Set markere Faber"
+                        },
+                        new
+                        {
+                            Ean = "5941234567899",
+                            Category = "Electronice",
+                            LastLookupDate = new DateTime(2026, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Casti wireless Sony"
+                        },
+                        new
+                        {
+                            Ean = "5901111111119",
+                            Category = "Electrocasnice",
+                            LastLookupDate = new DateTime(2026, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Aspirator Turbo Clean"
+                        },
+                        new
+                        {
+                            Ean = "5902222222220",
+                            Category = "Sport",
+                            LastLookupDate = new DateTime(2026, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Sticla termica Frost 500ml"
                         });
                 });
 
@@ -98,7 +119,7 @@ namespace ProductInsight.Api.Migrations
                             ProductEan = "5901234123457",
                             Rating = 4,
                             Source = "Seed",
-                            Text = "Face o cafea bună, dar e zgomotoasă."
+                            Text = "Face o cafea buna, dar e zgomotoasa."
                         },
                         new
                         {
@@ -108,7 +129,7 @@ namespace ProductInsight.Api.Migrations
                             ProductEan = "5901234123457",
                             Rating = 2,
                             Source = "Seed",
-                            Text = "După 3 luni s-a stricat pompa."
+                            Text = "Dupa 3 luni s-a stricat pompa."
                         },
                         new
                         {
@@ -118,7 +139,7 @@ namespace ProductInsight.Api.Migrations
                             ProductEan = "5901234123457",
                             Rating = 5,
                             Source = "Seed",
-                            Text = "Raport calitate/preț excelent."
+                            Text = "Raport calitate/pret excelent."
                         },
                         new
                         {
@@ -128,7 +149,7 @@ namespace ProductInsight.Api.Migrations
                             ProductEan = "4006381333931",
                             Rating = 5,
                             Source = "Seed",
-                            Text = "Culori vii, nu se usucă repede."
+                            Text = "Culori vii, nu se usuca repede."
                         },
                         new
                         {
@@ -138,7 +159,163 @@ namespace ProductInsight.Api.Migrations
                             ProductEan = "4006381333931",
                             Rating = 3,
                             Source = "Seed",
-                            Text = "Mi se pare cam scump pentru ce oferă."
+                            Text = "Mi se pare cam scump pentru ce ofera."
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AuthorName = "Vlad",
+                            Date = new DateTime(2026, 9, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "5941234567899",
+                            Rating = 5,
+                            Source = "Seed",
+                            Text = "Sunet foarte bun si baterie care tine."
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AuthorName = "Maria",
+                            Date = new DateTime(2026, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "5941234567899",
+                            Rating = 4,
+                            Source = "Seed",
+                            Text = "Confortabile, dar microfonul e slab."
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AuthorName = "Dan",
+                            Date = new DateTime(2026, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "5941234567899",
+                            Rating = 5,
+                            Source = "Seed",
+                            Text = "Cel mai bun raport calitate/pret din categorie."
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AuthorName = "Carmen",
+                            Date = new DateTime(2026, 9, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "5901111111119",
+                            Rating = 2,
+                            Source = "Seed",
+                            Text = "Aspia slab si face mult zgomot."
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AuthorName = "Sorin",
+                            Date = new DateTime(2026, 9, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "5901111111119",
+                            Rating = 1,
+                            Source = "Seed",
+                            Text = "S-a stricat motorul dupa o luna."
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AuthorName = "Laura",
+                            Date = new DateTime(2026, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "5901111111119",
+                            Rating = 3,
+                            Source = "Seed",
+                            Text = "Merge decent pe suprafete mici."
+                        },
+                        new
+                        {
+                            Id = 12,
+                            AuthorName = "Andrei",
+                            Date = new DateTime(2026, 9, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "5902222222220",
+                            Rating = 4,
+                            Source = "Seed",
+                            Text = "Tine apa rece toata ziua."
+                        },
+                        new
+                        {
+                            Id = 13,
+                            AuthorName = "Bianca",
+                            Date = new DateTime(2026, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "5902222222220",
+                            Rating = 3,
+                            Source = "Seed",
+                            Text = "Capacul se desface greu, altfel e ok."
+                        });
+                });
+
+            modelBuilder.Entity("ProductInsight.Api.Models.ScoreResult", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("AverageRating")
+                        .HasColumnType("REAL");
+
+                    b.Property<DateTime>("CalculatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ProductEan")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ReviewsCount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Verdict")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductEan");
+
+                    b.ToTable("ScoreResult");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AverageRating = 3.6699999999999999,
+                            CalculatedAt = new DateTime(2026, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "5901234123457",
+                            ReviewsCount = 3,
+                            Verdict = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AverageRating = 4.0,
+                            CalculatedAt = new DateTime(2026, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "4006381333931",
+                            ReviewsCount = 2,
+                            Verdict = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AverageRating = 4.6699999999999999,
+                            CalculatedAt = new DateTime(2026, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "5941234567899",
+                            ReviewsCount = 3,
+                            Verdict = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AverageRating = 2.0,
+                            CalculatedAt = new DateTime(2026, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "5901111111119",
+                            ReviewsCount = 3,
+                            Verdict = 0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AverageRating = 3.5,
+                            CalculatedAt = new DateTime(2026, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductEan = "5902222222220",
+                            ReviewsCount = 2,
+                            Verdict = 1
                         });
                 });
 
@@ -151,6 +328,17 @@ namespace ProductInsight.Api.Migrations
                         .IsRequired();
 
                     b.Navigation("Prodcut");
+                });
+
+            modelBuilder.Entity("ProductInsight.Api.Models.ScoreResult", b =>
+                {
+                    b.HasOne("ProductInsight.Api.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductEan")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("ProductInsight.Api.Models.Product", b =>
