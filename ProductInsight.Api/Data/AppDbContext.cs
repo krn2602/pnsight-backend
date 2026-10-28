@@ -8,7 +8,7 @@ public class AppDbContext : DbContext {
     public DbSet<Product> Products => Set<Product>();
     public DbSet<Review> Reviews => Set<Review>();
     public DbSet<ScoreResult> ScoreResult => Set<ScoreResult>();
-
+    public DbSet<AiEvaluation> AiEvaluation => Set<AiEvaluation>();
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
         modelBuilder.Entity<Product>().HasKey(p => p.Ean);
         
@@ -72,5 +72,6 @@ public class AppDbContext : DbContext {
         new ScoreResult { Id = 5, ProductEan = "5902222222220", AverageRating = 3.5, ReviewsCount = 2, Verdict = Verdict.Mediu, CalculatedAt = new DateTime(2026, 10, 2) 
         });
         
+       
     }
 }

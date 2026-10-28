@@ -17,6 +17,48 @@ namespace ProductInsight.Api.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.13");
 
+            modelBuilder.Entity("ProductInsight.Api.Models.AiEvaluation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Calitate")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CredibilitateRecenzii")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Durabilitate")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("EvaluatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ProductEan")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("RaportCalitatePret")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Rezumat")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("SatisfactieGenerala")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Vandabilitate")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductEan");
+
+                    b.ToTable("AiEvaluation");
+                });
+
             modelBuilder.Entity("ProductInsight.Api.Models.Product", b =>
                 {
                     b.Property<string>("Ean")
@@ -317,6 +359,17 @@ namespace ProductInsight.Api.Migrations
                             ReviewsCount = 2,
                             Verdict = 1
                         });
+                });
+
+            modelBuilder.Entity("ProductInsight.Api.Models.AiEvaluation", b =>
+                {
+                    b.HasOne("ProductInsight.Api.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductEan")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("ProductInsight.Api.Models.Review", b =>
