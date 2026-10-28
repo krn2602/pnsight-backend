@@ -9,6 +9,9 @@ public class AppDbContext : DbContext {
     public DbSet<Review> Reviews => Set<Review>();
     public DbSet<ScoreResult> ScoreResult => Set<ScoreResult>();
     public DbSet<AiEvaluation> AiEvaluation => Set<AiEvaluation>();
+    public DbSet<User> Users => Set<User>();
+    public DbSet<SearchHistory> SearchHistories => Set<SearchHistory>();
+
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
         modelBuilder.Entity<Product>().HasKey(p => p.Ean);
         

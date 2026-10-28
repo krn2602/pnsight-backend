@@ -361,6 +361,51 @@ namespace ProductInsight.Api.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ProductInsight.Api.Models.SearchHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Ean")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("SearchedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("SearchHistories");
+                });
+
+            modelBuilder.Entity("ProductInsight.Api.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("ProductInsight.Api.Models.AiEvaluation", b =>
                 {
                     b.HasOne("ProductInsight.Api.Models.Product", "Product")
@@ -394,9 +439,25 @@ namespace ProductInsight.Api.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("ProductInsight.Api.Models.SearchHistory", b =>
+                {
+                    b.HasOne("ProductInsight.Api.Models.User", "User")
+                        .WithMany("SearchHistory")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("ProductInsight.Api.Models.Product", b =>
                 {
                     b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("ProductInsight.Api.Models.User", b =>
+                {
+                    b.Navigation("SearchHistory");
                 });
 #pragma warning restore 612, 618
         }
